@@ -8,18 +8,13 @@ require_once __DIR__ . '/check_lock.php';
 set_time_limit(300);
 ini_set('memory_limit', '512M');
 
-#$updateUrl = "https://update.webspell-rm.de/releases/2.1.7/cms.zip";
 $messages = [];
 
-
-
-
-
-$updateUrl = "https://github.com/Webspell-RM/Webspell-RM-3.0-Next-Generation/archive/refs/heads/main.zip";
+$updateUrl = "https://github.com/nexpell/nexpell-core/archive/refs/heads/main.zip";
 $tempZipPath = __DIR__ . "/main.zip";
 $extractPath = __DIR__; // /install/
 $webrootPath = dirname(__DIR__); // Webroot
-$extractedDir = __DIR__ . "/Webspell-RM-3.0-Next-Generation-main";
+$extractedDir = __DIR__ . "/nexpell-core-main";
 $messages = [];
 
 function addMessage(&$messages, $message, $type = "info", $icon = "ℹ️") {

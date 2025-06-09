@@ -458,7 +458,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `avatar` varchar(255) DEFAULT 'noavatar.png',
   `firstname` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
-  `gender` varchar(100) NOT NULL DEFAULT 'select_gender',
+  `gender` varchar(100) NOT NULL DEFAULT 'unknown',
   `town` varchar(255) NOT NULL,
   `birthday` varchar(255) NOT NULL,
   `facebook` varchar(255) NOT NULL,
