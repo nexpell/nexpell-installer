@@ -58,11 +58,13 @@ VALUES (1, '', '', '', 25, 0, 0, 1, 0, 0);
 -- Ende der Tabelle 'email'
 
 -- Tabellenstruktur für Tabelle `lock` 
-CREATE TABLE IF NOT EXISTS `lock` (
-  `time` int(11) NOT NULL,
-  `reason` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
--- Ende der Tabelle 'lock'
+CREATE TABLE IF NOT EXISTS `site_lock` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `reason` TEXT NOT NULL,
+  `time` INT(11) UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+-- Ende der Tabelle 'site_lock'
 
 -- Tabellenstruktur für Tabelle `navigation_dashboard_categories`
 CREATE TABLE IF NOT EXISTS `navigation_dashboard_categories` (
