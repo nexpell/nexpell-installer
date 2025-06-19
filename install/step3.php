@@ -60,6 +60,16 @@ if (!is_writable($css_file)) {
     $success_messages[] = "✅ Die Datei stylesheet.css ist schreibbar.";
 }
 
+// Funktion zum Generieren eines 32-Zeichen ASCII-Schlüssels
+function generateAESKey(int $length = 32): string {
+    $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    $key = '';
+    for ($i = 0; $i < $length; $i++) {
+        $key .= $chars[random_int(0, strlen($chars) - 1)];
+    }
+    return $key;
+}
+
 // Initialwerte
 $DB_HOST = $DB_USER = $DB_PASS = $DB_NAME = '';
 $error_message = '';
@@ -77,31 +87,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $requirements_met) {
             throw new mysqli_sql_exception("Verbindung zur Datenbank fehlgeschlagen: " . $conn->connect_error);
         }
 
+        // AES_KEY generieren: 32 Zeichen ASCII (keine Hexkodierung)
+        $aes_key = generateAESKey(32);
+
         // Datenbankverbindung war erfolgreich, also schreibe die config.inc.php
         $configContent = "<?php\n";
-$configContent .= "/**\n * nexpell Konfigurationsdatei\n * Automatisch generiert durch Installer\n */\n";
-$configContent .= "define('DB_HOST', '" . addslashes($DB_HOST) . "');\n";
-$configContent .= "define('DB_USER', '" . addslashes($DB_USER) . "');\n";
-$configContent .= "define('DB_PASS', '" . addslashes($DB_PASS) . "');\n";
-$configContent .= "define('DB_NAME', '" . addslashes($DB_NAME) . "');\n";
-$configContent .= "?>";
+        $configContent .= "/**\n * nexpell Konfigurationsdatei\n * Automatisch generiert durch Installer\n */\n";
+        $configContent .= "define('DB_HOST', '" . addslashes($DB_HOST) . "');\n";
+        $configContent .= "define('DB_USER', '" . addslashes($DB_USER) . "');\n";
+        $configContent .= "define('DB_PASS', '" . addslashes($DB_PASS) . "');\n";
+        $configContent .= "define('DB_NAME', '" . addslashes($DB_NAME) . "');\n";
+        $configContent .= "/**\n * AES-Schlüssel für Verschlüsselung (32 Zeichen ASCII)\n */\n";
+        $configContent .= "define('AES_KEY', '" . $aes_key . "');\n";
+        $configContent .= "?>";
 
-file_put_contents($configPath, $configContent);
-        
-
-        $configFile = dirname(__DIR__) . '/system/config.inc.php';
-
-        if (file_put_contents($configFile, $configContent)) {
+        if (file_put_contents($configPath, $configContent)) {
             $success_messages[] = "✅ config.inc.php wurde erfolgreich erstellt!";
         } else {
             $error_message = "❌ Fehler beim Erstellen der config.inc.php Datei.";
         }
 
         $_SESSION['db_data'] = [
+            // Datenbank-Verbindungsdaten
             'DB_HOST' => $DB_HOST,
             'DB_USER' => $DB_USER,
             'DB_PASS' => $DB_PASS,
-            'DB_NAME' => $DB_NAME
+            'DB_NAME' => $DB_NAME,
+            // AES-Schlüssel für Verschlüsselung (32 Zeichen ASCII)
+            'AES_KEY'  => $aes_key
         ];
 
         header("Location: step4.php");
