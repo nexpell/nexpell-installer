@@ -237,7 +237,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
 
 -- Tabellenstruktur für Tabelle `settings_imprint`
 CREATE TABLE IF NOT EXISTS `settings_imprint` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `id` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `type` varchar(255) NOT NULL,
   `company_name` varchar(255) NOT NULL,
   `represented_by` varchar(255) NOT NULL,
