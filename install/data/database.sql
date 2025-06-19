@@ -124,7 +124,7 @@ INSERT INTO `navigation_dashboard_links` (`catID`, `modulname`, `name`, `url`, `
 (3, 'ac_admin_log', '[[lang:de]]Admin-Protokoll[[lang:en]]Admin Log[[lang:it]]Registro Admin', 'admincenter.php?site=admin_log', 3),
 (4, 'ac_security_overview', '[[lang:de]]Admin Security[[lang:en]]Admin Security[[lang:it]]Sicurezza Admin', 'admincenter.php?site=security_overview', 1),
 (6, 'ac_webside_navigation', '[[lang:de]]Webseiten Navigation[[lang:en]]Website Navigation[[lang:it]]Menu Navigazione Web', 'admincenter.php?site=webside_navigation', 1),
-(6, 'ac_themes_installer', '[[lang:de]]Themes Installer[[lang:en]]Themes Installer[[lang:it]]Installazione Themes', 'admincenter.php?site=themes_installer', 2),
+(6, 'ac_theme_installer', '[[lang:de]]Themes Installer[[lang:en]]Themes Installer[[lang:it]]Installazione Themes', 'admincenter.php?site=theme_installer', 2),
 (6, 'ac_theme', '[[lang:de]]Themes[[lang:en]]Themes[[lang:it]]Temi', 'admincenter.php?site=theme', 3),
 (6, 'ac_headstyle', '[[lang:de]]Kopfzeilen-Stil[[lang:en]]Head Style[[lang:it]]Stile intestazione', 'admincenter.php?site=admin_headstyle', 4),
 (6, 'ac_startpage', '[[lang:de]]Startseite[[lang:en]]Start Page[[lang:it]]Pagina Principale', 'admincenter.php?site=settings_startpage', 5),
@@ -255,21 +255,6 @@ CREATE TABLE IF NOT EXISTS `settings_imprint` (
   `supervisory_authority` varchar(255) DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 -- Ende der Tabelle 'settings_imprint'
-
--- Tabellenstruktur für Tabelle `themes_installed`
-CREATE TABLE IF NOT EXISTS  `themes_installed` (
-  `themeID` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
-  `version` varchar(20) NOT NULL,
-  `author` varchar(100) DEFAULT NULL,
-  `preview_image` varchar(255) DEFAULT NULL,
-  `description` text,
-  `installed_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `active` tinyint(1) NOT NULL DEFAULT 0,
-  PRIMARY KEY (`themeID`),
-  UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
--- Ende der Tabelle 'themes_installed'
 
 -- Tabellenstruktur für Tabelle `settings_languages`
 CREATE TABLE `settings_languages` (
@@ -906,3 +891,22 @@ CREATE TABLE IF NOT EXISTS link_clicks (
     referrer TEXT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 -- Ende der Tabelle 'link_clicks'
+
+-- Tabellenstruktur für Tabelle themes_installed
+CREATE TABLE IF NOT EXISTS `themes_installed` (
+  `themeID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `modulname` varchar(255) NOT NULL,
+  `version` varchar(20) NOT NULL,
+  `author` varchar(100) DEFAULT NULL,
+  `url` varchar(255) NOT NULL,
+  `folder` varchar(255) NOT NULL,
+  `description` text DEFAULT NULL,
+  `installed_date` datetime NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`themeID`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci AUTO_INCREMENT=2;
+
+INSERT INTO `themes_installed` (`themeID`, `name`, `modulname`, `version`, `author`, `url`, `folder`, `description`, `installed_date`) VALUES
+(1, 'Lux', 'lux', '5.3.3', 'Bootswatch', 'https://bootswatch.com/lux/', 'lux', '[[lang:de]]Ein luxuriöses Theme mit klaren Linien.[[lang:en]]A luxurious theme with clean lines.[[lang:it]]Un tema lussuoso con linee pulite.', '2025-06-19 12:20:03');
+-- Ende der Tabelle 'themes_installed'
