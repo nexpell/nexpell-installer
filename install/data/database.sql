@@ -237,18 +237,39 @@ CREATE TABLE IF NOT EXISTS `settings` (
 
 -- Tabellenstruktur für Tabelle `settings_imprint`
 CREATE TABLE IF NOT EXISTS `settings_imprint` (
-    `id` INT(11) NOT NULL AUTO_INCREMENT,
-    `type` VARCHAR(255) NOT NULL,
-    `company_name` VARCHAR(255) NOT NULL,
-    `represented_by` VARCHAR(255) NOT NULL,
-    `tax_id` VARCHAR(255) DEFAULT NULL,
-    `email` VARCHAR(255) NOT NULL,
-    `website` VARCHAR(255) DEFAULT NULL,
-    `phone` VARCHAR(50) DEFAULT NULL,
-    `disclaimer` TEXT DEFAULT NULL,
-    PRIMARY KEY (`id`)
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `type` varchar(255) NOT NULL,
+  `company_name` varchar(255) NOT NULL,
+  `represented_by` varchar(255) NOT NULL,
+  `tax_id` varchar(255) DEFAULT NULL,
+  `email` varchar(255) NOT NULL,
+  `website` varchar(255) DEFAULT NULL,
+  `phone` varchar(50) DEFAULT NULL,
+  `disclaimer` text DEFAULT NULL,
+  `address` varchar(255) DEFAULT '',
+  `postal_code` varchar(20) DEFAULT '',
+  `city` varchar(100) DEFAULT '',
+  `register_office` varchar(100) DEFAULT '',
+  `register_number` varchar(100) DEFAULT '',
+  `vat_id` varchar(50) DEFAULT '',
+  `supervisory_authority` varchar(255) DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 -- Ende der Tabelle 'settings_imprint'
+
+-- Tabellenstruktur für Tabelle `themes_installed`
+CREATE TABLE IF NOT EXISTS  `themes_installed` (
+  `themeID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `version` varchar(20) NOT NULL,
+  `author` varchar(100) DEFAULT NULL,
+  `preview_image` varchar(255) DEFAULT NULL,
+  `description` text,
+  `installed_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `active` tinyint(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`themeID`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+-- Ende der Tabelle 'themes_installed'
 
 -- Tabellenstruktur für Tabelle `settings_languages`
 CREATE TABLE `settings_languages` (
@@ -612,7 +633,7 @@ INSERT INTO `user_role_admin_navi_rights` (`id`, `roleID`, `type`, `modulname`, 
 (16, 1, 'link', 'footer_easy', 19),
 (17, 1, 'link', 'ac_user_roles', 21),
 (18, 1, 'link', 'ac_webside_navigation', 9),
-(19, 1, 'link', 'ac_themes_installer', 10),
+(19, 1, 'link', 'ac_theme_installer', 10),
 (20, 1, 'link', 'ac_db_stats', 23),
 (21, 1, 'link', 'ac_admin_log', 24),
 (22, 1, 'link', 'ac_update_core', 25),

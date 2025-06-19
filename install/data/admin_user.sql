@@ -25,6 +25,5 @@ INSERT INTO `settings` (
 INSERT IGNORE INTO `user_username` (`userID`, `username`) 
 VALUES (1, '{adminuser}');
 
-INSERT IGNORE INTO `settings_imprint` (`id`, `type`, `company_name`, `represented_by`, `tax_id`, `email`, `website`, `phone`, `disclaimer`) VALUES
-(1, 'private', '{{adminuser}}', '', '', '{{adminmail}}', '{{adminweburl}}', '+49 123 4567890', '[[lang:de]] Dies ist ein deutscher Haftungsausschluss. [[lang:en]] This is an English disclaimer. [[lang:it]] Questo Ã¨ un disclaimer italiano.');
-
+INSERT INTO `settings_imprint` (`id`, `type`, `company_name`, `represented_by`, `tax_id`, `email`, `website`, `phone`, `disclaimer`, `address`, `postal_code`, `city`, `register_office`, `register_number`, `vat_id`, `supervisory_authority`) VALUES
+(1, 'private', '{adminuser}', '', '', '{adminmail}', '{adminweburl}', '+49 123 4567890', '[[lang:de]] Dies ist ein deutscher Haftungsausschluss. [[lang:en]] This is an English disclaimer. [[lang:it]] Questo Ã¨ un disclaimer italiano.', '', '', '', '', '', '', '');
