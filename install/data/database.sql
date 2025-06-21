@@ -783,6 +783,7 @@ CREATE TABLE IF NOT EXISTS comments (
   comment TEXT NOT NULL,
   date DATETIME NOT NULL DEFAULT current_timestamp(),
   parentID INT(11) DEFAULT 0,
+  modulname varchar(100) NOT NULL,
   PRIMARY KEY (commentID),
   KEY plugin_item (plugin, itemID),
   KEY userID (userID),
