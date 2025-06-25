@@ -271,16 +271,9 @@ CREATE TABLE `settings_languages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `settings_languages` (`id`, `iso_639_1`, `iso_639_2`, `name_en`, `name_native`, `name_de`, `active`, `flag`, `created_at`, `updated_at`) VALUES
-(1, 'dk', 'dan', 'Danish', 'Dansk', 'Dänisch', 1, '/admin/images/flags/dk.svg', NOW(), NULL),
-(2, 'nl', 'nld', 'Dutch', 'Nederlands', 'Niederländisch', 1, '/admin/images/flags/nl.svg', NOW(), NULL),
-(3, 'en', 'eng', 'English', 'English', 'Englisch', 1, '/admin/images/flags/gb.svg', NOW(), NULL),
-(4, 'fi', 'fin', 'Finnish', 'Suomi', 'Finnisch', 1, '/admin/images/flags/fi.svg', NOW(), NULL),
-(5, 'fr', 'fra', 'French', 'Français', 'Französisch', 1, '/admin/images/flags/fr.svg', NOW(), NULL),
-(6, 'de', 'deu', 'German', 'Deutsch', 'Deutsch', 1, '/admin/images/flags/de.svg', NOW(), NULL),
-(7, 'it', 'ita', 'Italian', 'Italiano', 'Italienisch', 1, '/admin/images/flags/it.svg', NOW(), NULL),
-(8, 'es', 'spa', 'Spanish', 'Español', 'Spanisch', 1, '/admin/images/flags/es.svg', NOW(), NULL),
-(9, 'ru', 'rus', 'Russian', 'Русский', 'Russisch', 1, '/admin/images/flags/ru.svg', NOW(), NULL),
-(10, 'tr', 'tur', 'Turkish', 'Türkçe', 'Türkisch', 1, '/admin/images/flags/tr.svg', NOW(), NULL);
+(1, 'en', 'eng', 'English', 'English', 'Englisch', 1, '/admin/images/flags/gb.svg', NOW(), NULL),
+(2, 'de', 'deu', 'German', 'Deutsch', 'Deutsch', 1, '/admin/images/flags/de.svg', NOW(), NULL),
+(3, 'it', 'ita', 'Italian', 'Italiano', 'Italienisch', 1, '/admin/images/flags/it.svg', NOW(), NULL);
 
 -- Ende der Tabelle 'settings_languages'
 
