@@ -389,14 +389,14 @@ CREATE TABLE IF NOT EXISTS `settings_startpage` (
   `editor` TINYINT(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO settings_startpage (`pageID`, `title`, `startpage_text`, `date`, `editor`) VALUES
-(1, 'Next-Generation', 
-'<div class="container px-4 py-5" id="icon-grid">
-  <h6 class="pb-2 border-bottom">Webspell RM (Next-Generation)</h6>
-  <small>Das Bootstrap CMS der Zukunft</small>
-</div>', 
-CURRENT_TIMESTAMP, '');
-
+INSERT INTO `settings_startpage` (`pageID`, `title`, `startpage_text`, `date`, `editor`) VALUES
+(
+  1,
+  'Next-Generation',
+  'Willkommen bei nexpell!<br><br>Herzlichen Glückwunsch — die Installation von nexpell wurde erfolgreich abgeschlossen. Sie haben damit die Basis für eine moderne, flexible und leistungsstarke Webplattform geschaffen, die Ihnen alle Freiheiten bietet, Ihre Ideen zu verwirklichen. Ganz gleich, ob Sie einen Blog, eine Galerie, ein Forum oder eine umfassende Community-Plattform aufbauen möchten — mit nexpell haben Sie das passende Werkzeug in der Hand.<br><br><strong>👉 Ihre nächsten Schritte:</strong><br>- Melden Sie sich im Admin-Panel an, um Ihre ersten Seiten, Kategorien und Inhalte zu erstellen.<br>- Konfigurieren Sie Designs, Farben und Sprachoptionen ganz nach Ihrem Geschmack.<br>- Aktivieren Sie weitere Module wie Artikel, Bewertungen oder ein Diskussionsforum, um Ihre Besucher noch besser einzubinden.<br>- Nutzen Sie die eingebauten Statistik- und Analysefunktionen, um Ihre Zielgruppe besser zu verstehen und Ihre Website weiterzuentwickeln.<br><br>nexpell wurde entwickelt, damit Sie schnell und unkompliziert starten können — und gleichzeitig alle Möglichkeiten offen bleiben, Ihre Webpräsenz individuell zu gestalten.<br><br>Wir wünschen Ihnen viel Erfolg und vor allem Freude beim Aufbau Ihrer neuen Website!',
+  CURRENT_TIMESTAMP,
+  ''
+);
 -- Ende der Tabelle 'settings_startpage'
 
 -- Tabellenstruktur für Tabelle `settings_static`
@@ -754,7 +754,7 @@ CREATE TABLE IF NOT EXISTS `settings_themes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `settings_themes` (`themeID`, `name`, `modulname`, `pfad`, `version`, `active`, `themename`, `navbar_class`, `navbar_theme`, `express_active`, `logo_pic`, `reg_pic`, `headlines`, `sort`) VALUES
-(1, 'Default', 'default', 'default', '0.3', 1, 'lux', 'bg-primary', 'dark', 0, 'default_logo.png', 'default_login_bg.jpg', 'headlines_03.css', 1);
+(1, 'Default', 'default', 'default', '0.3', 1, 'lux', 'bg-light', 'light', 0, 'default_logo.png', 'default_login_bg.jpg', 'headlines_03.css', 1);
 -- Ende der Tabelle 'settings_themes'
 
 -- Tabellenstruktur für Tabelle `settings_headstyle_config`
