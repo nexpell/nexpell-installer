@@ -396,7 +396,7 @@ INSERT INTO `settings_startpage` (`pageID`, `title`, `startpage_text`, `date`, `
   'Next-Generation',
   'Willkommen bei nexpell!<br><br>Herzlichen Glückwunsch — die Installation von nexpell wurde erfolgreich abgeschlossen. Sie haben damit die Basis für eine moderne, flexible und leistungsstarke Webplattform geschaffen, die Ihnen alle Freiheiten bietet, Ihre Ideen zu verwirklichen. Ganz gleich, ob Sie einen Blog, eine Galerie, ein Forum oder eine umfassende Community-Plattform aufbauen möchten — mit nexpell haben Sie das passende Werkzeug in der Hand.<br><br><strong>👉 Ihre nächsten Schritte:</strong><br>- Melden Sie sich im Admin-Panel an, um Ihre ersten Seiten, Kategorien und Inhalte zu erstellen.<br>- Konfigurieren Sie Designs, Farben und Sprachoptionen ganz nach Ihrem Geschmack.<br>- Aktivieren Sie weitere Module wie Artikel, Bewertungen oder ein Diskussionsforum, um Ihre Besucher noch besser einzubinden.<br>- Nutzen Sie die eingebauten Statistik- und Analysefunktionen, um Ihre Zielgruppe besser zu verstehen und Ihre Website weiterzuentwickeln.<br><br>nexpell wurde entwickelt, damit Sie schnell und unkompliziert starten können — und gleichzeitig alle Möglichkeiten offen bleiben, Ihre Webpräsenz individuell zu gestalten.<br><br>Wir wünschen Ihnen viel Erfolg und vor allem Freude beim Aufbau Ihrer neuen Website!',
   CURRENT_TIMESTAMP,
-  ''
+  '0'
 );
 -- Ende der Tabelle 'settings_startpage'
 

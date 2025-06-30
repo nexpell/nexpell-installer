@@ -22,6 +22,9 @@ if ($mysqli->connect_error) {
     die("❌ Fehler bei der Datenbankverbindung: " . $mysqli->connect_error);
 }
 
+// HIER Charset setzen!
+$mysqli->set_charset("utf8mb4");
+
 // SQL-Datei laden und verarbeiten
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
